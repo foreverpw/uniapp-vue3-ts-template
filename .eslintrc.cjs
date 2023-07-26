@@ -7,7 +7,6 @@ module.exports = {
   'extends': [
     'eslint:recommended', // 使用推荐的eslint
     'plugin:vue/vue3-recommended', // 使用插件支持vue3
-    './.eslintrc-auto-import.json'
   ],
   'parserOptions': {
     'ecmaVersion': 13,
