@@ -2,9 +2,9 @@
   <view class="content">
     <page-title />
     <image class="logo" src="/static/logo.png" />
-    <view class="text-area">
+    <navigator url="/pages/login/index" class="text-area">
       <text class="title">{{ title }}</text>
-    </view>
+    </navigator>
   </view>
 </template>
 

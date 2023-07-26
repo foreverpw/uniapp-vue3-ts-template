@@ -11,7 +11,7 @@ const pathSrc = resolve(__dirname, 'src')
 // https://vitejs.dev/config/
 export default defineConfig((mode: ConfigEnv) => {
   const env = loadEnv(mode.mode, process.cwd());
-  console.log(env.VITE_API_PROXY_URL);
+  console.log(env.VITE_API_BASE_URL);
 
   return {
     resolve: {
@@ -30,11 +30,15 @@ export default defineConfig((mode: ConfigEnv) => {
       },
     },
     plugins: [
-      uni(),
       eslintPlugin({
         include: ['src/**/*.js', 'src/**/*.vue', 'src/*.js', 'src/*.vue']
       }),
       AutoImport({
+        // include: [
+        //   /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
+        //   /\.vue$/, /\.vue\?vue/, /\.vue\?mpType/, // .vue
+        //   /\.md$/, // .md
+        // ],
         dirs: ['src/composables', 'src/shared'],
         // Auto import functions from Vue, e.g. ref, reactive, toRef...
         // 自动导入 Vue 相关函数，如：ref, reactive, toRef 等
@@ -53,17 +57,18 @@ export default defineConfig((mode: ConfigEnv) => {
         extensions: ['vue', 'tsx'],
         dts: resolve(pathSrc, 'types/components.d.ts'),
       }),
+      uni(),
     ],
-    server: {
-      host: '0.0.0.0',
-      proxy: {
-        '/api': {
-          target: env.VITE_API_PROXY_URL,
-          ws: true,
-          changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/api/, ''),
-        },
-      },
-    },
+    // server: {
+    //   host: '0.0.0.0',
+    //   proxy: {
+    //     '/api': {
+    //       target: env.VITE_API_PROXY_URL,
+    //       ws: true,
+    //       changeOrigin: true,
+    //       rewrite: (path) => path.replace(/^\/api/, ''),
+    //     },
+    //   },
+    // },
   }
 })
