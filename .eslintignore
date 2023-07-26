@@ -1,0 +1,3 @@
+src/auto-imports.d.ts
+src/libs/*
+dist
