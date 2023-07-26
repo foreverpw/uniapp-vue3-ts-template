@@ -7,6 +7,7 @@ module.exports = {
   'extends': [
     'eslint:recommended', // 使用推荐的eslint
     'plugin:vue/vue3-recommended', // 使用插件支持vue3
+    './.eslintrc-auto-import.json'
   ],
   'parserOptions': {
     'ecmaVersion': 13,
@@ -27,7 +28,10 @@ module.exports = {
     defineProps: 'readonly',
     defineEmits: 'readonly',
     defineExpose: 'readonly',
-    withDefaults: 'readonly'
+    withDefaults: 'readonly',
+    BaseRespData: true,
+    BaseResp: true,
+    uni: true,
   },
   // 这里时配置规则的,自己看情况配置
   'rules': {

@@ -1,0 +1,17 @@
+@mixin flex($direction: row,$align:inherit,$justify:inherit) {
+	/* #ifndef APP-NVUE */
+	display: flex;
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: $justify;
+	/* #endif */
+}
+
+@mixin inline-flex($direction: row,$align:inherit,$justify:inherit) {
+	/* #ifndef APP-NVUE */
+	display: inline-flex;
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: $justify;
+	/* #endif */
+}
