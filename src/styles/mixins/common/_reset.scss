@@ -1,0 +1,41 @@
+view,
+text,
+scroll-view,
+image,
+input,
+textarea,
+navigator,
+cover-view,
+bottom-wrapper,
+cover-image,
+form,
+swiper-item {
+  box-sizing: border-box;
+}
+
+navigator {
+  transition: opacity 0.3s ease;
+
+  &:active {
+    opacity: 0.7;
+  }
+}
+
+.navigator-hover {
+  background-color: inherit;
+  opacity: 1;
+}
+
+image {
+  height: auto
+}
+
+//uni-ui
+uni-button.borderless {
+  border: none !important;
+}
+
+uni-button[type=default] {
+  background-color: transparent;
+  color: var(--text-color);
+}

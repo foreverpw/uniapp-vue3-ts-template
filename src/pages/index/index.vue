@@ -1,6 +1,10 @@
 <template>
   <view class="content">
     <page-title />
+    <view class="hair">
+      <view>rerr</view>
+      <view>sser</view>
+    </view>
     <image class="logo" src="/static/logo.png" />
     <navigator url="/pages/login/index" class="text-area">
       <text class="title">{{ title }}</text>
@@ -13,7 +17,7 @@ import { ref } from 'vue'
 const title = ref('Hello');
 </script>
 
-<style>
+<style lang="scss">
 .content {
   display: flex;
   flex-direction: column;
@@ -29,7 +33,12 @@ const title = ref('Hello');
   margin-right: auto;
   margin-bottom: 50rpx;
 }
-
+.hair{
+  width:500rpx;
+  margin:20px;
+  @include hairline-bottom();
+  @include flex();
+}
 .text-area {
   display: flex;
   justify-content: center;
