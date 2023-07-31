@@ -4,9 +4,9 @@ import eslintPlugin from 'vite-plugin-eslint' //导入包
 import { resolve } from 'path';
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
+import postcss from './postcss.config'
 
 const pathSrc = resolve(__dirname, 'src')
-
 
 // https://vitejs.dev/config/
 export default defineConfig((mode: ConfigEnv) => {
@@ -28,6 +28,7 @@ export default defineConfig((mode: ConfigEnv) => {
           `,
         },
       },
+      postcss
     },
     plugins: [
       eslintPlugin({

@@ -1,7 +1,7 @@
 <template>
   <view class="content">
     <page-title />
-    <view class="hair">
+    <view class="flex">
       <view>rerr</view>
       <view>sser</view>
     </view>
@@ -37,7 +37,6 @@ const title = ref('Hello');
   width:500rpx;
   margin:20px;
   @include hairline-bottom();
-  @include flex();
 }
 .text-area {
   display: flex;
