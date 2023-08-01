@@ -4,7 +4,10 @@ import eslintPlugin from 'vite-plugin-eslint' //导入包
 import { resolve } from 'path';
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
-import postcss from './postcss.config'
+import { UnifiedViteWeappTailwindcssPlugin as uvtw } from 'weapp-tailwindcss/vite'
+import rem2px from 'postcss-rem-to-responsive-pixel'
+import tailwindcss from 'tailwindcss'
+import autoprefixer from 'autoprefixer'
 
 const pathSrc = resolve(__dirname, 'src')
 
@@ -28,7 +31,17 @@ export default defineConfig((mode: ConfigEnv) => {
           `,
         },
       },
-      postcss
+      postcss: {
+        plugins: [
+          tailwindcss(),
+          autoprefixer(),
+          rem2px({
+            rootValue: 32,
+            propList: ['*'],
+            transformUnit: 'rpx'
+          })
+        ]
+      }
     },
     plugins: [
       eslintPlugin({
@@ -59,6 +72,7 @@ export default defineConfig((mode: ConfigEnv) => {
         dts: resolve(pathSrc, 'types/components.d.ts'),
       }),
       uni(),
+      uvtw(),
     ],
     // server: {
     //   host: '0.0.0.0',

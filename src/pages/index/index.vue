@@ -1,9 +1,9 @@
 <template>
   <view class="content">
     <page-title />
-    <view class="flex">
-      <view>rerr</view>
-      <view>sser</view>
+    <view class="flex w-80 hair">
+      <view class="text-base px-8 py-0.5 rounded-sm bg-success">rerr</view>
+      <view class="basis-2/3 ">sser</view>
     </view>
     <image class="logo" src="/static/logo.png" />
     <navigator url="/pages/login/index" class="text-area">
@@ -37,6 +37,7 @@ const title = ref('Hello');
   width:500rpx;
   margin:20px;
   @include hairline-bottom();
+  color:theme('colors.primary');
 }
 .text-area {
   display: flex;
